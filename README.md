@@ -12,6 +12,6 @@ Soit 5.84710893000000000000 au sud du puits
 
 Puits Lambert Nord EPSG:27561 : Est 600000 Nord 126224
 
-pilier géodésique : Est 600000 Nord 126218.15289107 unité / mètres
+Pilier géodésique : Est 600000 Nord 126218.15289107 unité / mètres
 
 ![Screenshot](img/Observatoire.jpg)
