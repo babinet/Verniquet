@@ -1,2 +1,5 @@
 # verniquet
-Georeference_from_toises2meters
+Georeferencement toises en metres
+
+Base pilier géodésique de l'Observatoire de Paris.
+
