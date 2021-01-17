@@ -1,4 +1,4 @@
-# verniquet
+# Verniquet Edmé
 Georeferencement toises
 
 Base : pilier géodésique de l'Observatoire de Paris.
