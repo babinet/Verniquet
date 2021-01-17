@@ -1,5 +1,8 @@
 # verniquet
-Georeferencement toises en metres
+Georeferencement toises
 
-Base pilier géodésique de l'Observatoire de Paris.
+Base : pilier géodésique de l'Observatoire de Paris.
 
+
+
+![Screenshot](img/Observatoire.jpg)
