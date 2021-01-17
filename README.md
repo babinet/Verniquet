@@ -1,4 +1,4 @@
-# Verniquet Edmé
+# Verniquet Edmé : Grand Atlas de Paris
 Georeferencement unité source : toises
 
 Origine : pilier géodésique de l'Observatoire de Paris.
