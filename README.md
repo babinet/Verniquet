@@ -11,6 +11,7 @@ Soit 2 toises et 5 pièds au sud du puits. Ou: 18 pieds
 Soit 5.84710893000000000000 au sud du puits
 
 Puits Lambert Nord EPSG:27561 : Est 600000 Nord 126224
-Est 600000 Nord 126218.15289107 unité / mètres
+
+pilier géodésique : Est 600000 Nord 126218.15289107 unité / mètres
 
 ![Screenshot](img/Observatoire.jpg)
