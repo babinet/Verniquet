@@ -5,7 +5,8 @@
 Usage: Verniquet2metters/Start.sh
 
 Conventions / noms de fichiers : Planche-[numero_de_Planche]_Edme_Verniquet.tif
-Planche-35_Edme_Verniquet.tif
+
+exemple: Planche-35_Edme_Verniquet.tif
 
 Georeferencement unité source : toises
 
