@@ -27,4 +27,6 @@ Destination depuis Nouvelle Triangulation Francaise (Paris) EPSG:27561 vers (mè
 
 ![Screenshot](img/Observatoire.jpg)
 
+![Screenshot](img/Babinet_btv1b53065387c_f1.jpg)
 
+petit clin d'oeil à mon ancètre Jacques Babinet, ici photographié par Nadar vers 1860
