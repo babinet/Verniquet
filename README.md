@@ -11,9 +11,9 @@ Position théorique du pilier géodésique en Lamber Nord EPSG:27561:
 
 Soit 2 toises et 5 pieds au sud du centre du puits. Ou: 17 pieds
 
-Soit 5.84710893000000000000 toises (décimales) au sud du centre puits
+Soit 5.84710893000000000000 toises (décimales) au sud du centre du puits
 
-Soit encore en (mètres) : 16.566808635 m au sud du centre puits
+Soit encore en (mètres) : 16.566808635 m au sud du centre du puits
 
 Centre du puits Lambert Nord EPSG:27561 : Est 600000 Nord 126224 unité / mètres
 
