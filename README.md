@@ -1,10 +1,15 @@
 # Verniquet Edmé : Atlas Du Plan General De La Ville Paris.
 
+* *Environment : #!/bin/bash*
+* *Requirement : **gdal exiftool wget imagemagick unar***
+* Toises vers mètres EPSG:27561 --> EPSG:3857 (ou Google 900913)
+
+
 ![Screenshot](img/Front.jpg)
 
 Usage: Verniquet2metters/Start.sh
 
-Conventions / noms de fichiers : Planche-[numero_de_Planche]_Edme_Verniquet.tif
+Conventions / noms de fichiers : Planche-[numèro_de_Planche]_Edme_Verniquet.tif
 
 exemple: Planche-35_Edme_Verniquet.tif
 
