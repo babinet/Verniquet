@@ -23,6 +23,8 @@ Centre du puits Lambert Nord EPSG:27561 : Est 600000 Nord 126224 unité / mètre
 
 Pilier géodésique Lambert Nord EPSG:27561 : Est 600000 Nord 126207.433191365 unité / mètres
 
+Destination depuis Nouvelle Triangulation Francaise (Paris) EPSG:27561 vers (mètres) EPSG:3857
+
 ![Screenshot](img/Observatoire.jpg)
 
 
