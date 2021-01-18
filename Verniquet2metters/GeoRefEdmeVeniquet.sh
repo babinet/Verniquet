@@ -125,12 +125,15 @@ elif [[ "$PlancheNumero" == "63" ]]
 then
 OriginXToises=1400
 OriginYToises=200
+elif [[ "$PlancheNumero" == "67" ]]
+then
+OriginXToises=-1000
+OriginYToises=-200
 elif [[ "$PlancheNumero" == "68" ]]
 then
 OriginXToises=-400
 OriginYToises=-200
 fi
-
 
 if [[ "OriginYToises" < "1" ]]
 then
