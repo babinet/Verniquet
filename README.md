@@ -1,4 +1,7 @@
-# Verniquet Edmé : Grand Atlas de Paris
+# Verniquet Edmé : Atlas Du Plan General De La Ville Paris.
+
+![Screenshot](img/Front.jpg)
+
 Georeferencement unité source : toises
 
 Origine : pilier géodésique de l'Observatoire de Paris.
