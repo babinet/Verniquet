@@ -4,6 +4,9 @@
 
 Usage: Verniquet2metters/Start.sh
 
+Conventions / noms de fichiers : Planche-[numero_de_Planche]_Edme_Verniquet.tif
+Planche-35_Edme_Verniquet.tif
+
 Georeferencement unité source : toises
 
 Origine : pilier géodésique de l'Observatoire de Paris.
@@ -30,5 +33,5 @@ Destination depuis Nouvelle Triangulation Francaise (Paris) EPSG:27561 vers (mè
 
 ![Screenshot](img/Babinet_btv1b53065387c_f1.jpg)
 
-Petit clin d'oeil à mon ancètre Jacques Babinet, ici photographié par Nadar vers 1860
+Petit clin d'oeil à mon ancètre Jacques Babinet, ici photographié par Nadar vers 1860 :
 [Jacques Babinet](https://fr.wikipedia.org/wiki/Jacques_Babinet)    
