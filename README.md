@@ -21,7 +21,9 @@ Origine : pilier géodésique de l'Observatoire de Paris.
 
 1 toise = 1.949036310 mètre
 
-1 pied = 0.32483938500000000000 mètre
+Pied de roi (Charlemagne) utilisé entre 1668 et 1799 d'une longueur de = 0.32483938500000000000 mètre
+
+Charlemagne dit fils de Bert aux grands pieds. 
 
 Position théorique du pilier géodésique en Lamber Nord EPSG:27561:
 
