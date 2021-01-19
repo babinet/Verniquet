@@ -100,6 +100,24 @@ then
 OriginXToises=-2000
 OriginYToises=2200
 
+elif [[ "$PlancheNumero" == "27" ]]
+then
+OriginXToises=-400
+OriginYToises=1800
+elif [[ "$PlancheNumero" == "28" ]]
+then
+OriginXToises=-1000
+OriginYToises=1800
+elif [[ "$PlancheNumero" == "29" ]]
+then
+OriginXToises=200
+OriginYToises=1800
+elif [[ "$PlancheNumero" == "30" ]]
+then
+OriginXToises=800
+OriginYToises=1800
+
+
 elif [[ "$PlancheNumero" == "35" ]]
 then
 OriginXToises=-1000
@@ -107,6 +125,10 @@ OriginYToises=1400
 elif [[ "$PlancheNumero" == "36" ]]
 then
 OriginXToises=-400
+OriginYToises=1400
+elif [[ "$PlancheNumero" == "37" ]]
+then
+OriginXToises=200
 OriginYToises=1400
 
 elif [[ "$PlancheNumero" == "43" ]]
