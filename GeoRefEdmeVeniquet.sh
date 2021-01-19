@@ -1,0 +1,218 @@
+#/bin/bash!
+orange=`tput setaf 11`
+bg_orange=`tput setab 178`
+purple=`tput setaf 13`
+Line=`tput smul`
+bold=`tput bold`
+black=`tput setaf 0`
+red=`tput setaf 1`
+green=`tput setaf 2`
+yellow=`tput setaf 3`
+blue=`tput setaf 4`
+magenta=`tput setaf 5`
+cyan=`tput setaf 6`
+white=`tput setaf 15`
+reset=`tput sgr0`
+bg_red=`tput setab 1`
+bg_green=`tput setab 2`
+bg_white=`tput setab 7`
+bg_blue=`tput setab 4`
+lightblue=`tput setaf 45`
+lightgreen=`tput setaf 46`
+bleuetern=`tput setaf 45`
+ilghtpurple=`tput setaf 33`
+lightred=`tput setaf 161`
+darkblue=`tput setaf 19`
+dir=$(
+cd -P -- "$(dirname -- "$0")" && pwd -P
+)
+cd "$dir" 2>&1 &>/dev/null
+mkdir -p ../_Output ../_TRASH_TEMP
+# Pieds
+#
+# 1 toise  = 6 pieds
+# 1 careau = 200 toises
+# 1 careau = 1200 pieds
+# 1 pieds du roi (Charlemagne) = 0.324839385
+
+# Metres
+#
+# 1careau = 389.807262 mètres de côté
+
+# Position du coin superieur gauche d'une planche = la postion du pilier géodésique - 2 careaux en logitude et + un careau en latitude
+ext=.tif
+#echo ext $ext
+for planche in "../"*_Edme_Verniquet"$ext"
+do
+FileDate=$(echo $(date +%Y_%m_%d_%Hh%Mm%Ss) | tr "/" "_")
+# Position théorique du Pilier Géodésique de l'Observatoire de Paris
+ObsPilierGeodesiqueLong=600000
+ObsPilierGeodesiqueLat=126207.433191365
+SimpleName=$( echo $planche| sed "s/$ext//g"| sed "s/..\///g")
+PlancheNumero=$(echo $planche| awk -F'_Edme_Verniquet' '{print $1}'| awk -F'Planche-' '{print $2}')
+echo "${white}---> \$SimpleName                 ${orange}$SimpleName"
+echo "${white}---> \$PlancheNumero              ${orange}$PlancheNumero"
+echo "${white}---> Position Origin (mètre) 600000 126207.433191365 (Pilier Géodésique de l'Observatoire de Paris (Pas le puits)"
+# 1 Planche
+# mètres
+Hauteur=779.614524
+ExifInfo=$(exiftool "$planche")
+WidthImage=$(echo $ExifInfo | awk -F'Image Width : ' '{print $2}' | awk '{print $1}')
+HeightImage=$(echo $ExifInfo | awk -F'Image Height : ' '{print $2}' | awk '{print $1}')
+
+echo "${white}---> Largeur en pixels            ${orange}$WidthImage px"
+echo "${white}---> Hauteur en pixels            ${orange}$HeightImage px"
+# Cas particuliers
+if [[ "$PlancheNumero" == "1" ]]||[[ "$PlancheNumero" == "9" ]]||[[ "$PlancheNumero" == "17" ]]||[[ "$PlancheNumero" == "25" ]]||[[ "$PlancheNumero" == "33" ]]||[[ "$PlancheNumero" == "41" ]]||[[ "$PlancheNumero" == "49" ]]||[[ "$PlancheNumero" == "57" ]]||[[ "$PlancheNumero" == "65" ]]
+then
+# 1 Planche
+# mètres
+Largeur=779.614524
+else
+# 1 Planche
+# mètres
+Largeur=1169.421786
+fi
+# Fin Cas particuliers
+
+echo "${white}---> Hauteur en (Toises)          ${orange}400 T"
+echo "${white}---> Hauteur en (mètre)           ${orange}779.614524 m"
+echo "${white}---> \$planche                    ${orange}$planche"
+echo "${white}---> Planche N°                   ${orange}$PlancheNumero"
+
+# Abscissa / Ordinate
+if [[ "$PlancheNumero" == "1" ]]
+then
+OriginXToises=-2000
+OriginYToises=3000
+
+elif [[ "$PlancheNumero" == "5" ]]
+then
+OriginXToises=200
+OriginYToises=3000
+elif [[ "$PlancheNumero" == "8" ]]
+then
+OriginXToises=-2000
+OriginYToises=3000
+
+elif [[ "$PlancheNumero" == "17" ]]
+then
+OriginXToises=-2000
+OriginYToises=2200
+
+elif [[ "$PlancheNumero" == "35" ]]
+then
+OriginXToises=-1000
+OriginYToises=1400
+elif [[ "$PlancheNumero" == "36" ]]
+then
+OriginXToises=-400
+OriginYToises=1400
+
+elif [[ "$PlancheNumero" == "43" ]]
+then
+OriginXToises=-1000
+OriginYToises=1000
+elif [[ "$PlancheNumero" == "44" ]]
+then
+OriginXToises=-400
+OriginYToises=1000
+elif [[ "$PlancheNumero" == "45" ]]
+then
+OriginXToises=200
+OriginYToises=1000
+elif [[ "$PlancheNumero" == "47" ]]
+then
+OriginXToises=1400
+OriginYToises=1000
+elif [[ "$PlancheNumero" == "48" ]]
+then
+OriginXToises=2000
+OriginYToises=1000
+
+elif [[ "$PlancheNumero" == "50" ]]
+then
+OriginXToises=-1600
+OriginYToises=600
+elif [[ "$PlancheNumero" == "51" ]]
+then
+OriginXToises=-1000
+OriginYToises=600
+elif [[ "$PlancheNumero" == "52" ]]
+then
+OriginXToises=-400
+OriginYToises=600
+elif [[ "$PlancheNumero" == "53" ]]
+then
+OriginXToises=200
+OriginYToises=600
+elif [[ "$PlancheNumero" == "59" ]]
+then
+OriginXToises=-1000
+OriginYToises=200
+elif [[ "$PlancheNumero" == "60" ]]
+then
+OriginXToises=-400
+OriginYToises=200
+elif [[ "$PlancheNumero" == "61" ]]
+then
+OriginXToises=200
+OriginYToises=200
+elif [[ "$PlancheNumero" == "62" ]]
+then
+OriginXToises=800
+OriginYToises=200
+elif [[ "$PlancheNumero" == "63" ]]
+then
+OriginXToises=1400
+OriginYToises=200
+elif [[ "$PlancheNumero" == "67" ]]
+then
+OriginXToises=-1000
+OriginYToises=-200
+elif [[ "$PlancheNumero" == "68" ]]
+then
+OriginXToises=-400
+OriginYToises=-200
+elif [[ "$PlancheNumero" == "72" ]]
+then
+OriginXToises=2600
+OriginYToises=-600
+fi
+
+if [[ "OriginYToises" < "1" ]]
+then
+NordSud=NORD
+else
+NordSud=SUD
+fi
+
+if [[ "OriginXToises" < "1" ]]
+then
+EstOuest=$(echo l'EST)
+else
+EstOuest=$(echo l'OUEST)
+fi
+
+OrigineMetresX=$(echo $OriginXToises*1.94903631+$ObsPilierGeodesiqueLong|bc -l)
+OrigineMetresY=$(echo $OriginYToises*1.94903631+$ObsPilierGeodesiqueLat|bc -l)
+Est=$(echo $OrigineMetresX+$Largeur|bc -l)
+Sud=$(echo $OrigineMetresY-$Hauteur|bc -l)
+echo "${white}---> Origine en X (Toises)        ${orange}$OriginXToises à $EstOuest du Pilier Géodésique de l'Observatoire de Paris"
+echo "${white}---> Origine en Y (Toises)        ${orange}$OriginYToises au $NordSud du Pilier Géodésique de l'Observatoire de Paris"
+echo "${white}---> \$ObsPilierGeodesiqueLat     ${green}$ObsPilierGeodesiqueLat"
+echo "${white}---> \$ObsPilierGeodesiqueLong    ${green}$ObsPilierGeodesiqueLong"
+echo "${white}---> \$OrigineMetresX             ${orange}$OrigineMetresX à $EstOuest du Pilier Géodésique de l'Observatoire de Paris"
+echo "${white}---> \$OrigineMetresY             $OrigineMetresY au $NordSud du Pilier Géodésique de l'Observatoire de Paris"
+echo "${white}---> \$Est                        ${orange}$Est"
+echo "${white}---> \$Sud                        ${orange}$Sud${reset}"
+gdal_translate -co COMPRESS=NONE -a_srs EPSG:27561 -of GTiff -gcp 0 0 "$OrigineMetresX" "$OrigineMetresY" -gcp 0 "$HeightImage" "$OrigineMetresX" "$Sud" -gcp "$WidthImage" 0 "$Est" "$OrigineMetresY" -gcp "$WidthImage" "$HeightImage" "$Est" "$Sud" "$planche" temp.tif
+
+if [ -f "../_Output/"$SimpleName".tif" ]
+then
+mv "../_Output/"$SimpleName".tif" ../_TRASH_TEMP/"$FileDate"_"$SimpleName".tif
+fi
+gdalwarp -co COMPRESS=NONE -r bilinear -s_srs "EPSG:27561" -t_srs "EPSG:3857"  temp.tif "../_Output/"$SimpleName".tif"
+done
+
+cd - 2>&1 &>/dev/null
