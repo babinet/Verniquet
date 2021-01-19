@@ -39,20 +39,6 @@ awkloutputinfo=$(awk --version)
 echo "${white}---> Installed version of ${orange}Awk${white} is ${green}"$awkloutputinfo""
 
 fi
-if ! [ -x "$(command -v wget)" ]; then
-  echo "${bg_red}${white}---> Error: wget is not installed.         <---${reset}" >&2
-  exit 1
-else
-wgetoutputinfo=$(wget --version | sed -n 1p)
-echo "${white}---> Installed version of ${orange}Wget${white} is ${green}"$wgetoutputinfo""
-fi
-if ! [ -x "$(command -v convert)" ]; then
-  echo "${bg_red}${white}---> Error: ImageMagick is not installed.  <---${reset}" >&2
-  exit 1
-else
-convertoutputinfo=$(convert --version | sed -n 1p)
-echo "${white}---> Installed version of ${orange}ImageMagick${white} is ${green}"$convertoutputinfo""
-fi
 if ! [ -x "$(command -v exiftool)" ]; then
   echo "${bg_red}${white}---> Error: ExifTool is not installed.     <---${reset}" >&2
   exit 1

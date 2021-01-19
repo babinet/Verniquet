@@ -23,13 +23,11 @@ bleuetern=`tput setaf 45`
 ilghtpurple=`tput setaf 33`
 lightred=`tput setaf 161`
 darkblue=`tput setaf 19`
-### INSTALL CHECK
 dir=$(
 cd -P -- "$(dirname -- "$0")" && pwd -P
 )
 cd "$dir" 2>&1 &>/dev/null
 mkdir -p ../_Output ../_TRASH_TEMP
-
 # Pieds
 #
 # 1 toise  = 6 pieds
@@ -46,6 +44,7 @@ ext=.tif
 #echo ext $ext
 for planche in "../"*_Edme_Verniquet"$ext"
 do
+FileDate=$(echo $(date +%Y_%m_%d_%Hh%Mm%Ss) | tr "/" "_")
 # Position théorique du Pilier Géodésique de l'Observatoire de Paris
 ObsPilierGeodesiqueLong=600000
 ObsPilierGeodesiqueLat=126207.433191365
@@ -78,37 +77,79 @@ fi
 
 echo "${white}---> Hauteur en (Toises)          ${orange}400 T"
 echo "${white}---> Hauteur en (mètre)           ${orange}779.614524 m"
-
 echo "${white}---> \$planche                    ${orange}$planche"
 echo "${white}---> Planche N°                   ${orange}$PlancheNumero"
 
 # Abscissa / Ordinate
-if [[ "$PlancheNumero" == "0" ]]
+if [[ "$PlancheNumero" == "1" ]]
 then
-OriginXToises=-1000
-OriginYToises=1400
+OriginXToises=-2000
+OriginYToises=3000
+
+elif [[ "$PlancheNumero" == "5" ]]
+then
+OriginXToises=200
+OriginYToises=3000
+elif [[ "$PlancheNumero" == "8" ]]
+then
+OriginXToises=-2000
+OriginYToises=3000
+
+elif [[ "$PlancheNumero" == "17" ]]
+then
+OriginXToises=-2000
+OriginYToises=2200
+
 elif [[ "$PlancheNumero" == "35" ]]
 then
 OriginXToises=-1000
 OriginYToises=1400
+elif [[ "$PlancheNumero" == "36" ]]
+then
+OriginXToises=-400
+OriginYToises=1400
+
+elif [[ "$PlancheNumero" == "43" ]]
+then
+OriginXToises=-1000
+OriginYToises=1000
 elif [[ "$PlancheNumero" == "44" ]]
 then
 OriginXToises=-400
 OriginYToises=1000
-
-
-
-
+elif [[ "$PlancheNumero" == "45" ]]
+then
+OriginXToises=200
+OriginYToises=1000
+elif [[ "$PlancheNumero" == "47" ]]
+then
+OriginXToises=1400
+OriginYToises=1000
+elif [[ "$PlancheNumero" == "48" ]]
+then
+OriginXToises=2000
+OriginYToises=1000
 
 elif [[ "$PlancheNumero" == "50" ]]
 then
 OriginXToises=-1600
 OriginYToises=600
-
+elif [[ "$PlancheNumero" == "51" ]]
+then
+OriginXToises=-1000
+OriginYToises=600
 elif [[ "$PlancheNumero" == "52" ]]
 then
 OriginXToises=-400
 OriginYToises=600
+elif [[ "$PlancheNumero" == "53" ]]
+then
+OriginXToises=200
+OriginYToises=600
+elif [[ "$PlancheNumero" == "59" ]]
+then
+OriginXToises=-1000
+OriginYToises=200
 elif [[ "$PlancheNumero" == "60" ]]
 then
 OriginXToises=-400
@@ -133,6 +174,10 @@ elif [[ "$PlancheNumero" == "68" ]]
 then
 OriginXToises=-400
 OriginYToises=-200
+elif [[ "$PlancheNumero" == "72" ]]
+then
+OriginXToises=2600
+OriginYToises=-600
 fi
 
 if [[ "OriginYToises" < "1" ]]
@@ -165,7 +210,7 @@ gdal_translate -co COMPRESS=NONE -a_srs EPSG:27561 -of GTiff -gcp 0 0 "$OrigineM
 
 if [ -f "../_Output/"$SimpleName".tif" ]
 then
-mv "../_Output/"$SimpleName".tif" ../_TRASH_TEMP/"$SimpleName".tif
+mv "../_Output/"$SimpleName".tif" ../_TRASH_TEMP/"$FileDate"_"$SimpleName".tif
 fi
 gdalwarp -co COMPRESS=NONE -r bilinear -s_srs "EPSG:27561" -t_srs "EPSG:3857"  temp.tif "../_Output/"$SimpleName".tif"
 done
