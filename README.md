@@ -4,7 +4,9 @@
 * *Requirement : **gdal exiftool awk***
 * Toises vers mètres EPSG:27561 --> EPSG:3857 (ou Google 900913)
 
-# AN IV de la République
+# Atlas du Plan général de la Ville de Paris, levé géométriquement par le Citoyen Verniquet
+# République Française - An IV
+## Rapporté sur une échelle d'une demie ligne pour toise, divisée en 72 planches, compris les cartouches et plan des opérations trigonométriques.
 
 
 ![Screenshot](img/Front.jpg)
