@@ -1,5 +1,3 @@
-# Verniquet Edmé : Atlas Du Plan General De La Ville Paris.
-
 * *Environment : #!/bin/bash*
 * *Requirement : **gdal exiftool awk***
 * Toises vers mètres EPSG:27561 --> EPSG:3857 (ou Google 900913)
