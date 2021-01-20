@@ -52,7 +52,7 @@ SimpleName=$( echo $planche| sed "s/$ext//g"| sed "s/..\///g")
 PlancheNumero=$(echo $planche| awk -F'_Edme_Verniquet' '{print $1}'| awk -F'Planche-' '{print $2}')
 echo "${white}---> \$SimpleName                  ${orange}$SimpleName"
 echo "${white}---> \$PlancheNumero               ${orange}$PlancheNumero"
-echo "${white}---> Position Origin (mètre) 600000 126207.433191365 (Pilier Géodésique de l'Observatoire de Paris (Pas le puits)"
+echo "${white}---> Position Origin (mètre) (Théorique) 600000 126207.433191365 Pilier Géodésique de l'Observatoire de Paris (Pas le puits)"
 # 1 Planche
 # mètres
 Hauteur=779.614524
@@ -101,10 +101,26 @@ elif [[ "$PlancheNumero" == "5" ]]
 then
 OriginXToises=200
 OriginYToises=3000
+elif [[ "$PlancheNumero" == "6" ]]
+then
+OriginXToises=800
+OriginYToises=3000
+elif [[ "$PlancheNumero" == "7" ]]
+then
+OriginXToises=1400
+OriginYToises=3000
 elif [[ "$PlancheNumero" == "8" ]]
 then
 OriginXToises=2000
 OriginYToises=3000
+elif [[ "$PlancheNumero" == "9" ]]
+then
+OriginXToises=-2000
+OriginYToises=2600
+elif [[ "$PlancheNumero" == "10" ]]
+then
+OriginXToises=-1600
+OriginYToises=2600
 
 elif [[ "$PlancheNumero" == "17" ]]
 then
