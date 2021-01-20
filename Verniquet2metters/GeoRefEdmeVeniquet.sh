@@ -50,8 +50,8 @@ ObsPilierGeodesiqueLong=600000
 ObsPilierGeodesiqueLat=126207.433191365
 SimpleName=$( echo $planche| sed "s/$ext//g"| sed "s/..\///g")
 PlancheNumero=$(echo $planche| awk -F'_Edme_Verniquet' '{print $1}'| awk -F'Planche-' '{print $2}')
-echo "${white}---> \$SimpleName                 ${orange}$SimpleName"
-echo "${white}---> \$PlancheNumero              ${orange}$PlancheNumero"
+echo "${white}---> \$SimpleName                  ${orange}$SimpleName"
+echo "${white}---> \$PlancheNumero               ${orange}$PlancheNumero"
 echo "${white}---> Position Origin (mètre) 600000 126207.433191365 (Pilier Géodésique de l'Observatoire de Paris (Pas le puits)"
 # 1 Planche
 # mètres
@@ -77,7 +77,7 @@ fi
 
 echo "${white}---> Hauteur en (Toises)          ${orange}400 T"
 echo "${white}---> Hauteur en (mètre)           ${orange}779.614524 m"
-echo "${white}---> \$planche                    ${orange}$planche"
+echo "${white}---> \$planche                     ${orange}$planche"
 echo "${white}---> Planche N°                   ${orange}$PlancheNumero"
 
 # Abscissa / Ordinate
@@ -85,14 +85,25 @@ if [[ "$PlancheNumero" == "1" ]]
 then
 OriginXToises=-2000
 OriginYToises=3000
-
+elif [[ "$PlancheNumero" == "2" ]]
+then
+OriginXToises=-1600
+OriginYToises=3000
+elif [[ "$PlancheNumero" == "3" ]]
+then
+OriginXToises=-1000
+OriginYToises=3000
+elif [[ "$PlancheNumero" == "4" ]]
+then
+OriginXToises=-400
+OriginYToises=3000
 elif [[ "$PlancheNumero" == "5" ]]
 then
 OriginXToises=200
 OriginYToises=3000
 elif [[ "$PlancheNumero" == "8" ]]
 then
-OriginXToises=-2000
+OriginXToises=2000
 OriginYToises=3000
 
 elif [[ "$PlancheNumero" == "17" ]]
@@ -116,8 +127,6 @@ elif [[ "$PlancheNumero" == "30" ]]
 then
 OriginXToises=800
 OriginYToises=1800
-
-
 elif [[ "$PlancheNumero" == "35" ]]
 then
 OriginXToises=-1000
@@ -129,6 +138,19 @@ OriginYToises=1400
 elif [[ "$PlancheNumero" == "37" ]]
 then
 OriginXToises=200
+OriginYToises=1400
+elif [[ "$PlancheNumero" == "38" ]]
+then
+OriginXToises=800
+OriginYToises=1400
+
+elif [[ "$PlancheNumero" == "39" ]]
+then
+OriginXToises=1400
+OriginYToises=1400
+elif [[ "$PlancheNumero" == "40" ]]
+then
+OriginXToises=2000
 OriginYToises=1400
 
 elif [[ "$PlancheNumero" == "43" ]]
@@ -202,32 +224,32 @@ OriginXToises=2600
 OriginYToises=-600
 fi
 
-if [[ "OriginYToises" < "1" ]]
+if [[ "OriginYToises" -gt "1" ]]
 then
 NordSud=NORD
 else
 NordSud=SUD
 fi
 
-if [[ "OriginXToises" < "1" ]]
+if [[ "OriginXToises" -gt "1" ]]
 then
-EstOuest=$(echo l'EST)
+EstOuest=$(echo "l'EST" )
 else
-EstOuest=$(echo l'OUEST)
+EstOuest=$(echo "l'OUEST" )
 fi
 
 OrigineMetresX=$(echo $OriginXToises*1.94903631+$ObsPilierGeodesiqueLong|bc -l)
 OrigineMetresY=$(echo $OriginYToises*1.94903631+$ObsPilierGeodesiqueLat|bc -l)
 Est=$(echo $OrigineMetresX+$Largeur|bc -l)
 Sud=$(echo $OrigineMetresY-$Hauteur|bc -l)
-echo "${white}---> Origine en X (Toises)        ${orange}$OriginXToises à $EstOuest du Pilier Géodésique de l'Observatoire de Paris"
-echo "${white}---> Origine en Y (Toises)        ${orange}$OriginYToises au $NordSud du Pilier Géodésique de l'Observatoire de Paris"
-echo "${white}---> \$ObsPilierGeodesiqueLat     ${green}$ObsPilierGeodesiqueLat"
-echo "${white}---> \$ObsPilierGeodesiqueLong    ${green}$ObsPilierGeodesiqueLong"
-echo "${white}---> \$OrigineMetresX             ${orange}$OrigineMetresX à $EstOuest du Pilier Géodésique de l'Observatoire de Paris"
-echo "${white}---> \$OrigineMetresY             $OrigineMetresY au $NordSud du Pilier Géodésique de l'Observatoire de Paris"
-echo "${white}---> \$Est                        ${orange}$Est"
-echo "${white}---> \$Sud                        ${orange}$Sud${reset}"
+echo "${white}---> Origine en X (Toises)        ${orange}$OriginXToises Toises à "$EstOuest" du Pilier Géodésique de l'Observatoire de Paris"
+echo "${white}---> Origine en Y (Toises)        ${orange}$OriginYToises Toises au "$NordSud" du Pilier Géodésique de l'Observatoire de Paris"
+echo "${white}---> \$ObsPilierGeodesiqueLat      ${green}$ObsPilierGeodesiqueLat"
+echo "${white}---> \$ObsPilierGeodesiqueLong     ${green}$ObsPilierGeodesiqueLong"
+echo "${white}---> \$OrigineMetresX              ${orange}$OrigineMetresX mètre à "$EstOuest" du Pilier Géodésique de l'Observatoire de Paris"
+echo "${white}---> \$OrigineMetresY              ${orange}$OrigineMetresY mètre au "$NordSud" du Pilier Géodésique de l'Observatoire de Paris"
+echo "${white}---> \$Est                         ${orange}$Est"
+echo "${white}---> \$Sud                         ${orange}$Sud${reset}"
 gdal_translate -co COMPRESS=NONE -a_srs EPSG:27561 -of GTiff -gcp 0 0 "$OrigineMetresX" "$OrigineMetresY" -gcp 0 "$HeightImage" "$OrigineMetresX" "$Sud" -gcp "$WidthImage" 0 "$Est" "$OrigineMetresY" -gcp "$WidthImage" "$HeightImage" "$Est" "$Sud" "$planche" temp.tif
 
 if [ -f "../_Output/"$SimpleName".tif" ]

@@ -37,7 +37,6 @@ if ! [ -x "$(command -v awk)" ]; then
 else
 awkloutputinfo=$(awk --version)
 echo "${white}---> Installed version of ${orange}Awk${white} is ${green}"$awkloutputinfo""
-
 fi
 if ! [ -x "$(command -v exiftool)" ]; then
   echo "${bg_red}${white}---> Error: ExifTool is not installed.     <---${reset}" >&2
@@ -45,13 +44,6 @@ if ! [ -x "$(command -v exiftool)" ]; then
 else
 
 echo "${white}---> Installed version of ${orange}Exiftool${white} is ${green}"$gdaloutputinfo""
-fi
-if ! [ -x "$(command -v unar)" ]; then
-  echo "${bg_red}${white}---> Error: Unar is not installed.     <---${reset}" >&2
-  exit 1
-else
-unaroutputinfo=$(unar --version)
-echo "${white}---> Installed version of ${orange}Unar${white} is ${green}"$unaroutputinfo""
 fi
 ### INSTALL CHECK END
 #
