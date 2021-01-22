@@ -121,12 +121,34 @@ elif [[ "$PlancheNumero" == "10" ]]
 then
 OriginXToises=-1600
 OriginYToises=2600
-
+elif [[ "$PlancheNumero" == "11" ]]
+then
+OriginXToises=-1000
+OriginYToises=2600
+elif [[ "$PlancheNumero" == "12" ]]
+then
+OriginXToises=-400
+OriginYToises=2600
+elif [[ "$PlancheNumero" == "13" ]]
+then
+OriginXToises=200
+OriginYToises=2600
+elif [[ "$PlancheNumero" == "14" ]]
+then
+OriginXToises=800
+OriginYToises=2600
+elif [[ "$PlancheNumero" == "15" ]]
+then
+OriginXToises=1400
+OriginYToises=2600
+elif [[ "$PlancheNumero" == "16" ]]
+then
+OriginXToises=2000
+OriginYToises=2600
 elif [[ "$PlancheNumero" == "17" ]]
 then
 OriginXToises=-2000
 OriginYToises=2200
-
 elif [[ "$PlancheNumero" == "27" ]]
 then
 OriginXToises=-400
@@ -189,7 +211,6 @@ elif [[ "$PlancheNumero" == "48" ]]
 then
 OriginXToises=2000
 OriginYToises=1000
-
 elif [[ "$PlancheNumero" == "50" ]]
 then
 OriginXToises=-1600
@@ -236,7 +257,7 @@ OriginXToises=-400
 OriginYToises=-200
 elif [[ "$PlancheNumero" == "72" ]]
 then
-OriginXToises=2600
+OriginXToises=2000
 OriginYToises=-600
 fi
 
@@ -246,7 +267,6 @@ NordSud=NORD
 else
 NordSud=SUD
 fi
-
 if [[ "OriginXToises" -gt "1" ]]
 then
 EstOuest=$(echo "l'EST" )
