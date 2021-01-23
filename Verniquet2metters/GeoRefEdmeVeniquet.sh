@@ -52,7 +52,7 @@ SimpleName=$( echo $planche| sed "s/$ext//g"| sed "s/..\///g")
 PlancheNumero=$(echo $planche| awk -F'_Edme_Verniquet' '{print $1}'| awk -F'Planche-' '{print $2}')
 echo "${white}---> \$SimpleName                  ${orange}$SimpleName"
 echo "${white}---> \$PlancheNumero               ${orange}$PlancheNumero"
-echo "${white}---> Position Origin (mètre) (Théorique) 600000 126207.433191365 Pilier Géodésique de l'Observatoire de Paris (Pas le puits)"
+echo "${white}---> Position Origin (mètres) (Théorique) 600000 126207.433191365 Pilier Géodésique de l'Observatoire de Paris (Pas le puits)"
 # 1 Planche
 # mètres
 Hauteur=779.614524
@@ -76,7 +76,7 @@ fi
 # Fin Cas particuliers
 
 echo "${white}---> Hauteur en (Toises)          ${orange}400 T"
-echo "${white}---> Hauteur en (mètres)           ${orange}779.614524 m"
+echo "${white}---> Hauteur en (mètres)          ${orange}779.614524 m"
 echo "${white}---> \$planche                     ${orange}$planche"
 echo "${white}---> Planche N°                   ${orange}$PlancheNumero"
 
@@ -201,6 +201,22 @@ elif [[ "$PlancheNumero" == "30" ]]
 then
 OriginXToises=800
 OriginYToises=1800
+elif [[ "$PlancheNumero" == "31" ]]
+then
+OriginXToises=1400
+OriginYToises=1800
+elif [[ "$PlancheNumero" == "32" ]]
+then
+OriginXToises=2000
+OriginYToises=1800
+elif [[ "$PlancheNumero" == "33" ]]
+then
+OriginXToises=-2000
+OriginYToises=1400
+elif [[ "$PlancheNumero" == "34" ]]
+then
+OriginXToises=-1600
+OriginYToises=1400
 elif [[ "$PlancheNumero" == "35" ]]
 then
 OriginXToises=-1000
@@ -217,7 +233,6 @@ elif [[ "$PlancheNumero" == "38" ]]
 then
 OriginXToises=800
 OriginYToises=1400
-
 elif [[ "$PlancheNumero" == "39" ]]
 then
 OriginXToises=1400
@@ -226,7 +241,14 @@ elif [[ "$PlancheNumero" == "40" ]]
 then
 OriginXToises=2000
 OriginYToises=1400
-
+elif [[ "$PlancheNumero" == "41" ]]
+then
+OriginXToises=-2000
+OriginYToises=1000
+elif [[ "$PlancheNumero" == "42" ]]
+then
+OriginXToises=-1600
+OriginYToises=1000
 elif [[ "$PlancheNumero" == "43" ]]
 then
 OriginXToises=-1000
@@ -239,6 +261,10 @@ elif [[ "$PlancheNumero" == "45" ]]
 then
 OriginXToises=200
 OriginYToises=1000
+elif [[ "$PlancheNumero" == "46" ]]
+then
+OriginXToises=800
+OriginYToises=1000
 elif [[ "$PlancheNumero" == "47" ]]
 then
 OriginXToises=1400
@@ -247,6 +273,10 @@ elif [[ "$PlancheNumero" == "48" ]]
 then
 OriginXToises=2000
 OriginYToises=1000
+elif [[ "$PlancheNumero" == "49" ]]
+then
+OriginXToises=-2000
+OriginYToises=600
 elif [[ "$PlancheNumero" == "50" ]]
 then
 OriginXToises=-1600
@@ -263,6 +293,26 @@ elif [[ "$PlancheNumero" == "53" ]]
 then
 OriginXToises=200
 OriginYToises=600
+elif [[ "$PlancheNumero" == "54" ]]
+then
+OriginXToises=800
+OriginYToises=600
+elif [[ "$PlancheNumero" == "55" ]]
+then
+OriginXToises=1400
+OriginYToises=600
+elif [[ "$PlancheNumero" == "56" ]]
+then
+OriginXToises=2000
+OriginYToises=600
+elif [[ "$PlancheNumero" == "57" ]]
+then
+OriginXToises=-2000
+OriginYToises=200
+elif [[ "$PlancheNumero" == "58" ]]
+then
+OriginXToises=-1600
+OriginYToises=200
 elif [[ "$PlancheNumero" == "59" ]]
 then
 OriginXToises=-1000
@@ -283,6 +333,18 @@ elif [[ "$PlancheNumero" == "63" ]]
 then
 OriginXToises=1400
 OriginYToises=200
+elif [[ "$PlancheNumero" == "64" ]]
+then
+OriginXToises=2000
+OriginYToises=200
+elif [[ "$PlancheNumero" == "65" ]]
+then
+OriginXToises=-2000
+OriginYToises=-200
+elif [[ "$PlancheNumero" == "66" ]]
+then
+OriginXToises=-1600
+OriginYToises=-200
 elif [[ "$PlancheNumero" == "67" ]]
 then
 OriginXToises=-1000
@@ -296,7 +358,6 @@ then
 OriginXToises=2000
 OriginYToises=-600
 fi
-
 if [[ "OriginYToises" -gt "1" ]]
 then
 NordSud=NORD
