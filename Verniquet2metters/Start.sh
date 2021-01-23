@@ -79,7 +79,10 @@ then
 ./GeoRefEdmeVeniquet.sh
 fi
 
-
+if [ $item.sh = util.sh ]
+then
+./util.sh
+fi
 
 cd - 2>&1 &>/dev/null
 

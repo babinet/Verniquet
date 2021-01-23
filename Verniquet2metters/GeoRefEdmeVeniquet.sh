@@ -34,13 +34,21 @@ mkdir -p ../_Output ../_TRASH_TEMP
 # 1 careau = 200 toises
 # 1 careau = 1200 pieds
 # 1 pieds du roi (Charlemagne) = 0.324839385
-
+if [ -f extenssion_de_fichier ]
+then
+ext=$(cat extenssion_de_fichier)
+echo "${white}---> Fichier_extenssion${green}ext = ${orange}$ext"
+else
+echo "${red}---> Choisir le type de fichier image${reset}"
+./util.sh
+ext=$(cat extenssion_de_fichier)
+echo "${white}---> Fichier_extenssion${green}ext = ${orange}$ext"
+fi
 # Metres
 #
 # 1careau = 389.807262 mètres de côté
 
 # Position du coin superieur gauche d'une planche = la postion du pilier géodésique - 2 careaux en logitude et + un careau en latitude
-ext=.tif
 #echo ext $ext
 for planche in "../"*_Edme_Verniquet"$ext"
 do
@@ -74,12 +82,10 @@ else
 Largeur=1169.421786
 fi
 # Fin Cas particuliers
-
 echo "${white}---> Hauteur en (Toises)          ${orange}400 T"
 echo "${white}---> Hauteur en (mètres)          ${orange}779.614524 m"
 echo "${white}---> \$planche                     ${orange}$planche"
 echo "${white}---> Planche N°                   ${orange}$PlancheNumero"
-
 # Abscissa / Ordinate
 if [[ "$PlancheNumero" == "1" ]]
 then
@@ -191,7 +197,7 @@ OriginXToises=-1000
 OriginYToises=1800
 elif [[ "$PlancheNumero" == "28" ]]
 then
-OriginXToises=-1000
+OriginXToises=-400
 OriginYToises=1800
 elif [[ "$PlancheNumero" == "29" ]]
 then
@@ -353,10 +359,22 @@ elif [[ "$PlancheNumero" == "68" ]]
 then
 OriginXToises=-400
 OriginYToises=-200
+elif [[ "$PlancheNumero" == "69" ]]
+then
+OriginXToises=200
+OriginYToises=-200
+elif [[ "$PlancheNumero" == "70" ]]
+then
+OriginXToises=800
+OriginYToises=-200
+elif [[ "$PlancheNumero" == "71" ]]
+then
+OriginXToises=1400
+OriginYToises=-200
 elif [[ "$PlancheNumero" == "72" ]]
 then
 OriginXToises=2000
-OriginYToises=-600
+OriginYToises=-200
 fi
 if [[ "OriginYToises" -gt "1" ]]
 then
@@ -391,5 +409,8 @@ mv "../_Output/"$SimpleName".tif" ../_TRASH_TEMP/"$FileDate"_"$SimpleName".tif
 fi
 gdalwarp -co COMPRESS=NONE -r bilinear -s_srs "EPSG:27561" -t_srs "EPSG:3857"  temp.tif "../_Output/"$SimpleName".tif"
 done
-
+if [ -f temp.tif ]
+then
+mv temp.tif ../_TRASH_TEMP/"$FileDate"_temp.tif
+fi
 cd - 2>&1 &>/dev/null
