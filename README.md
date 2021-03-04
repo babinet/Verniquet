@@ -1,5 +1,5 @@
 * *Environment : #!/bin/bash*
-* *Requirement : **gdal exiftool awk***
+* *Requirement : **gdal exiftool awk bc***
 * Toises vers mètres EPSG:27561 --> EPSG:3857 (ou Google 900913)
 
 # Atlas du Plan général de la Ville de Paris, levé géométriquement par le Citoyen Verniquet
